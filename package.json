@@ -68,7 +68,6 @@
   "scripts": {
     "clean": "rimraf ./artifacts ./cache ./coverage ./types ./coverage.json ./deployments/localfhenix && pnpm typechain",
     "compile": "cross-env TS_NODE_TRANSPILE_ONLY=true hardhat compile",
-    "coverage": "hardhat coverage --network localfhenix --solcoverjs ./.solcover.js --temp artifacts --testfiles \"test/**/*.ts\" && pnpm typechain",
     "deploy:contracts": "hardhat deploy",
     "lint": "pnpm lint:sol && pnpm lint:ts && pnpm prettier:check",
     "lint:sol": "solhint --max-warnings 0 \"contracts/**/*.sol\"",
@@ -77,10 +76,8 @@
     "prettier:check": "prettier --check \"**/*.{js,json,md,sol,ts,yml}\"",
     "prettier:write": "prettier --write \"**/*.{js,json,md,sol,ts,yml}\"",
     "hardhat": "hardhat",
-    "deployCounter": "hardhat task:deployCounter",
     "deploywERC20": "hardhat task:deployWrappingERC20",
     "task:wrap": "hardhat task:wrap",
-    "task:addCount": "hardhat task:addCount",
     "task:balance": "hardhat task:getBalanceEncrypted",
     "test": "hardhat test --network localfhenix",
     "typechain": "cross-env TS_NODE_TRANSPILE_ONLY=true hardhat typechain",
