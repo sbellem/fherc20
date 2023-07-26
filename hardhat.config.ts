@@ -25,6 +25,11 @@ if (!infuraApiKey) {
   throw new Error("Please set your INFURA_API_KEY in a .env file");
 }
 
+const fhenixHostname: string | undefined = process.env.FHENIX_HOSTNAME;
+if (!fhenixHostname) {
+  throw new Error("Please set your FHENIX_HOSTNAME in a .env file");
+}
+
 const chainIds = {
   "arbitrum-mainnet": 42161,
   avalanche: 43114,
@@ -93,7 +98,8 @@ const config: HardhatUserConfig = {
     localfhenix: {
       accounts: { mnemonic, path: "m/44'/60'/0'/0" },
       chainId: 5432,
-      url: "http://localhost:8545",
+      //url: "http://localhost:8545",
+      url: `http://${fhenixHostname}:8545`,
     },
     hardhat: {
       accounts: {

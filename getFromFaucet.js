@@ -16,7 +16,8 @@ async function mnemonicToAddress() {
 }
 
 async function callFaucet(address) {
-  const response = await axios.get(`http://localhost:6000/faucet?address=${address}`);
+  let fhenixHostname = process.env.FHENIX_HOSTNAME;
+  const response = await axios.get(`http://${fhenixHostname}:6000/faucet?address=${address}`);
   const data = await response.data;
   console.log(`Success!: ${JSON.stringify(data)}`);
 }
